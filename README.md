@@ -24,20 +24,19 @@ A video to present the hardware-in-the-loop simulation project based on this sim
 
 ## File structure.<br>
 imgs: images for this Readme.md Tutorial.<br>
-Init.m: Initialization script automatically called before running the model File.<br>
-MavLinkStruct.mat: the bus Structs for the output and input signals<br>
+Init.m: Initialization script automatically called before running the model File.<br>初始化文件<br>
+MavLinkStruct.mat: the bus Structs for the output and input signals<br>Mavlink的格式的输入、输出的bus定义<br>
 Multicopter_vPC.slx : the main Simulink model file.<br>
 SupportedVehicleTypes.docx :  supported vehicle types.<br>
-MathModelDocEn.pdf : Mathematical derivation and simple modeling method for the simulatin model. <br>
-<br>
+MathModelDocEn.pdf : Mathematical derivation and simple modeling method for the simulatin model. <br>数学推导及建模方法的介绍
 <br>
 
 ## Input and output Ports.<br>
-inPWMs: input signal, ESC/motor control signal from the control system, eight-dimensional float vector, ranges from 0 to 1. <br>
-Terrain: input signal, the current terrain height, one-dimensional float value, positive for the down direction, unit (m) <br>
-MavHILSensor: output signal, bus struct, contains sensor data required by the Autopilot system like PX4/Ardupilot <br>
-MavHILGPS: output signal, bus struct, contains GPS data required by the Autopilot system like PX4/Ardupilot <br>
-MavVehileStateInfo:  output signal, bus struct, contains true state of the vehicle for the vehicle software simulation in Simulink <br>
+inPWMs: input signal, ESC/motor control signal from the control system, eight-dimensional float vector, ranges from 0 to 1. <br>PWM输入<br>
+Terrain: input signal, the current terrain height（地形高度或相对高度）, one-dimensional float value, positive for the down direction, unit (m) <br>
+MavHILSensor（传感器数据）: output signal, bus struct, contains sensor data required by the Autopilot system like PX4/Ardupilot <br>
+MavHILGPS（GPS数据）: output signal, bus struct, contains GPS data required by the Autopilot system like PX4/Ardupilot <br>
+MavVehileStateInfo（状态信息）:  output signal, bus struct, contains true state of the vehicle for the vehicle software simulation in Simulink <br>
 the detailed definition for the above output structs are presented below. <br>
 ![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/SimulinkOutputDefinitions.png)<br>
 

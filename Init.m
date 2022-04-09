@@ -8,7 +8,7 @@ ModelInit_AngEuler = [0,0,0]; % Vehicle Euler angle xyz (roll,pitch,yaw) (rad)
 ModelInit_RateB = [0,0,0]; % Vehicle angular speed xyz (roll,pitch,yaw) in the body frame (rad/s)
 ModelInit_RPM = 0; %Initial motor speed (rad/s)
 
-%UAV model parameter
+%UAV model parameter 模型参数
 ModelParam_uavMass = 1.4; %Mass of UAV(kg)
 ModelParam_uavJxx = 0.0241;  % moment of inertia in body x axis
 ModelParam_uavJyy = 0.0239;   % moment of inertia in body y axis
@@ -17,13 +17,14 @@ ModelParam_uavJzz = 0.0386;  % moment of inertia in body z axis
 ModelParam_uavJ= [ModelParam_uavJxx,0,0;...
     0,ModelParam_uavJyy,0;...
     0,0,ModelParam_uavJzz];
-ModelParam_uavType = int8(3); %X-type quadrotor��refer to "SupportedVehicleTypes.docx" for specific definitions
+ModelParam_uavType = int8(3); %X-type quadrotor��refer to "SupportedVehicleTypes.docx" for specific definitions
 ModelParam_uavMotNumbs = int8(4);  %Number of motors
 ModelParam_uavR = 0.225;   %Body radius(m)
-
-ModelParam_motorCr = 1148; %Motor throttle-speed curve slope(rad/s)
-ModelParam_motorWb =-141.4;  %Motor speed-throttle curve constant term(rad/s)
-ModelParam_motorT = 0.02;  %Motor inertia time constant(s)
+%
+%该部分内容参考全权的《Introduction to multicopter design and control》的6.3节的内容
+ModelParam_motorCr = 1148; %Motor throttle-speed curve slope(rad/s) 实测拟合得出
+ModelParam_motorWb =-141.4;  %Motor speed-throttle curve constant term(rad/s)  实测拟合得出
+ModelParam_motorT = 0.02;  %Motor inertia time constant(s) 
 ModelParam_motorJm = 0.0001287;    %Moment of inertia of motor rotor + propeller(kg.m^2)
 %M=Cm*w^2
 ModelParam_rotorCm = 1.779e-07;    %Rotor torque coefficient(kg.m^2)
@@ -50,7 +51,7 @@ ModelParam_BusSampleRate = 0.001;            %Model sampling rate
 ModelParam_timeSampBaro = 0.01;  % Barometer data sample time
 ModelParam_timeSampTurbWind = 0.01; % Atmospheric turbulence data sample time
 %%%ModelParam_BattModelEnable=int8(0);
-ModelParam_BattHoverMinutes=18; %time of endurance for the battery simulation 
+ModelParam_BattHoverMinutes=18; %time of endurance for the battery simulation
 ModelParam_BattHoverThr=0.609; % Vehilce hovering time
 
 %GPS Parameter
